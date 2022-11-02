@@ -34,10 +34,6 @@ class ViewController: UITableViewController {
                 pictures.append(item)
             }
         }
-        
-        tableView.performSelector(onMainThread: #selector(UITableView.reloadData), with: nil, waitUntilDone: false)
-        
-        
     }
     
     @objc func appShared() {
@@ -63,7 +59,7 @@ class ViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-                                                                            // I want to treat this is a DetailViewController so please try and     convert it to one.
+        // I want to treat this is a DetailViewController so please try and convert it to one.
         if let vc = storyboard?.instantiateViewController(withIdentifier: "Detail") as? DetailViewController {
             vc.totalPictures = pictures.count
             vc.selectedPictureNumber = indexPath.row
